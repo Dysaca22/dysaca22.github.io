@@ -1,0 +1,53 @@
+.btn-primary {
+    border-radius: var(--radius);
+    padding: 8px 1rem;
+    border: 2px solid #2c2c2c;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0) 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+.btn-primary:hover::after {
+    transform: scale(4);
+}
+
+.btn-melon {
+    background-color: var(--melon);
+
+    &:hover {
+        border-color: #666666;
+        background: var(--white);
+        color: var(--black);
+    }
+}
+
+.btn-white {
+    background-color: var(--white);
+
+    &:hover {
+        border-color: #666666;
+        background: var(--black);
+        color: var(--white);
+    }
+}
+
+.btn-black {
+    background-color: var(--black);
+}
