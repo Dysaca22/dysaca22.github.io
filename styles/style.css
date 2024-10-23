@@ -1,0 +1,128 @@
+:root {
+    --gap: 15px;
+    --text-color: black;
+    --radius: 20px;
+    --bg-color-100: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace, sans-serif;
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+html {
+    border-radius: var(--radius);
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+.header {
+    margin: 5px;
+    border-radius: var(--radius);
+    background-color: bisque;
+
+    & .menu {
+        padding: 0 var(--gap);
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        height: 50px;
+    }
+
+    & nav ul {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: var(--gap);
+
+        & li {
+            list-style: none;
+            padding: 5px 15px;
+            border: 1px solid gray;
+            border-radius: var(--radius);
+        }
+    }
+
+    & a {
+        text-decoration: none;
+    }
+
+    & .main {
+        & .info {
+            text-align: center;
+            padding: 70px 10%;
+
+            & h1 {
+                font-size: 8rem;
+                font-weight: bolder;
+            }
+
+            & h3 {
+                text-align: start;
+                font-size: 2rem;
+                font-weight: 700;
+            }
+        }
+
+        & .footer {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            & figure {
+                margin: 0 0 var(--gap) var(--gap);
+                width: 120px;
+                aspect-ratio: 11/16;
+                border-radius: var(--radius);
+                overflow: hidden;
+
+                & img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            & .contact {
+                width: 100px;
+                padding: 10px;
+                border-top-left-radius: var(--radius);
+                background-color: var(--bg-color-100);
+                position: relative;
+
+                & button {
+                    border-radius: var(--radius);
+                    padding: 5px var(--gap);
+                    width: 100%;
+                }
+
+                & .radius {
+                    position: absolute;
+                    width: var(--radius);
+                    height: var(--radius);
+                    background-color: blue;
+
+                    &:first-child {
+                        right: 100%;
+                        bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
