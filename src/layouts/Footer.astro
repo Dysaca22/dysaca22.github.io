@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon/components";
+
+const socials = [
+    {
+        name: "GitHub",
+        url: "https://github.com/Dysaca22",
+        icon: "github",
+    },
+    {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/dylan-cantillo/",
+        icon: "linkedin",
+    },
+    {
+        name: "Instagram",
+        url: "https://www.instagram.com/dysaca/",
+        icon: "instagram",
+    },
+    {
+        name: "Email",
+        url: "mailto:dylancantilloa@gmail.com",
+        icon: "mail",
+    },
+];
+---
+
+<footer class="p-10">
+    <div class="flex flex-row items-center justify-center gap-4">
+        {
+            socials.map(({ name, url, icon }) => (
+                <a class="group relative" href={url} target="_blank">
+                    <Icon
+                        class="w-8 hover:scale-125 duration-200 hover:stroke-blue-500"
+                        name={icon}
+                        size={20}
+                    />
+                    <span class="absolute -top-12 left-0 z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100">
+                        {name}
+                        <span />
+                    </span>
+                </a>
+            ))
+        }
+    </div>
+</footer>

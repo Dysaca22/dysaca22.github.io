@@ -1,0 +1,34 @@
+---
+import { ViewTransitions } from "astro:transitions";
+
+import Footer from "@layouts/Footer.astro";
+import Header from "@layouts/Header.astro";
+
+const { title = null } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="h-full w-full">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dylan Cantillo {title && `- ${title}`}</title>
+        <ViewTransitions />
+        <link rel="icon" href="favicon.svg" type="image/x-icon" />
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
+            body {
+                font-family: "Merriweather", serif;
+                font-size: clamp(12px, 1vw, 18px);
+            }
+        </style>
+    </head>
+    <body class="p-5 h-full w-full">
+        <Header />
+        <main class="mt-14">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>

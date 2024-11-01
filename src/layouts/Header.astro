@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components"
+
+const links = [
+	{
+		href: "/",
+		content: "Inicio",
+	}, 
+	{
+		href: "/about-me",
+		content: "Sobre mi",
+	},
+	{
+		href: "/projects",
+		content: "Proyectos",
+	},
+]
+---
+
+<header class="fixed top-0 left-0 w-full h-16 bg-white shadow-md flex flex-row items-center justify-between px-4 md:justify-center gap-10 z-50">
+	<button class="md:hidden" id="menu-toggle" aria-label="Toggle menu">
+	<Icon name="menu" size={20} />
+	</button>
+	<nav>
+		<ul class="hidden md:flex flex-row items-center justify-center gap-10" id="menu">
+			{
+				links.map(({ href, content }) => (
+					<li><a class="px-5 py-1 border-b border-black font-semibold hover:py-2 transition-all ease-linear duration-200" href={href}>{content}</a></li>
+				))
+			}
+		</ul>
+		<div class="absolute md:hidden left-0 top-16 w-full bg-white shadow-md" id="mobile-menu">
+			<ul class="flex-col items-start py-4 hidden" id="mobile-links">
+				{
+					links.map(({ href, content }) => (
+						<li class="w-full"><a class="px-5 py-3 block hover:bg-gray-100 transition-all" href={href}>{content}</a></li>
+					))
+				}
+			</ul>
+		</div>
+	</nav>
+	<button class="px-5 py-1 flex gap-2 items-center"><Icon name="mail" /> Contactame</button>
+</header>
+
+<script>
+	const menuToggle = document.getElementById('menu-toggle');
+	const mobileLinks = document.getElementById('mobile-links');
+
+	menuToggle?.addEventListener('click', () => {
+		mobileLinks?.classList.toggle('hidden');
+	});
+</script>
