@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 
+import Component from "@components/Component.astro";
 import Footer from "@layouts/Footer.astro";
 import Header from "@layouts/Header.astro";
 
@@ -24,10 +25,11 @@ const { title = null } = Astro.props;
             }
         </style>
     </head>
-    <body class="p-5 h-full w-full">
+    <body class="p-5 h-full w-full bg-white">
         <Header />
         <main class="mt-14">
             <slot />
+            <Component />
         </main>
         <Footer />
     </body>

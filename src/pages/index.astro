@@ -5,7 +5,7 @@ import Main from "@layouts/Main.astro";
 ---
 
 <Main>
-	<article class="mx-20 py-5">
+	<article class="md:mx-20 py-5">
 		<section>
 			<figure
 				class="relative w-full rounded-2xl"
@@ -17,19 +17,19 @@ import Main from "@layouts/Main.astro";
 					alt="Dylan Cantillo Arrieta"
 				/>
 				<div
-					class="absolute left-0 bottom-0 flex flex-col justify-start items-start"
+					class="absolute left-0 bottom-0 flex flex-col justify-start items-start gap-0"
 				>
 					<div
-						class="relative px-8 py-4 rounded-se-2xl text-6xl font-bold bg-white"
+						class="relative px-4 md:px-8 py-4 rounded-se-2xl text-6xl font-bold bg-white"
 					>
-						<h1>Dylan</h1>
+						<h1 class="max-sm:text-3xl">Dylan</h1>
 						<Icon class="absolute left-full bottom-0 text-white -rotate-90" name="inrounded-corner" size={20} />
 						<Icon class="absolute left-0 bottom-full text-white -rotate-90" name="inrounded-corner" size={20} />
 					</div>
 					<div
-						class="relative px-8 py-4 rounded-se-2xl text-6xl font-bold bg-white"
+						class="relative px-4 md:px-8 py-4 rounded-se-2xl text-6xl font-bold bg-white"
 					>
-						<h1>Cantillo Arrieta</h1>
+						<h1 class="max-sm:text-3xl">Cantillo Arrieta</h1>
 						<Icon class="absolute left-full bottom-0 text-white -rotate-90" name="inrounded-corner" size={20} />
 					</div>
 				</div>
