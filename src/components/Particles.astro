@@ -1,0 +1,69 @@
+---
+const { particle_imgs, size = 20, particles_amount = 10 } = Astro.props;
+---
+
+<astro-particles
+    data-particle_imgs={JSON.stringify(particle_imgs)}
+    data-size={size}
+    data-particles_amount={particles_amount}
+>
+    <div id="tsparticles" class="w-full h-full relative">
+        <slot />
+    </div>
+</astro-particles>
+
+<script>
+    import loadParticles from "@js/particles";
+
+    class AstroParticles extends HTMLElement {
+        constructor() {
+            super();
+
+            const particle_imgs = JSON.parse(this.dataset.particle_imgs) || [];
+            const particles_amount = this.dataset.particles_amount || 10;
+            const size = Number(this.dataset.size) || 20;
+
+            const images = particle_imgs.map((path: "") => {
+                return {
+                    src: path,
+                };
+            });
+
+            const configs = {
+                fullScreen: {
+                    zIndex: 0,
+                    enable: false,
+                    mode: "fullscreen",
+                },
+                particles: {
+                    number: {
+                        value: particles_amount,
+                    },
+                    shape: {
+                        type: "image",
+                        options: {
+                            image: images,
+                        },
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: false,
+                    },
+                    size: {
+                        value: size,
+                    },
+                    move: {
+                        enable: true,
+                        speed: 1.2,
+                        out_mode: "bounce",
+                    },
+                },
+                retina_detect: true,
+            };
+
+            loadParticles(configs);
+        }
+    }
+
+    customElements.define("astro-particles", AstroParticles);
+</script>
