@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 
 import Main from "@layouts/Main.astro";
+import Carousel from "@components/Carousel.astro";
 ---
 
 <Main>
@@ -49,11 +50,27 @@ import Main from "@layouts/Main.astro";
             </figure>
         </section>
         <section class="flex items-center justify-center">
-			<div class="flex flex-col gap-5 max-w-[900px] text-center">
-				<p class="text-3xl font-bold">Perfil</p>
-				<p>Ingeniero de Sistemas con experiencia de 2 años y proximo a grado de Matemáticas. Competente en programación y matemáticas aplicadas, con énfasis en ciencia de datos, desarrollo FullStack, modelado de bases de datos. Dominio avanzado en lenguajes de programación como Python y JavaScript. Capaz de diseñar, desarrollar y optimizar sistemas con enfoque en la resolución de problemas complejos. Orientado a resultados, con un alto nivel de motivación, compromiso y responsabilidad. Destacada capacidad de trabajo en equipo y atención al detalle. Con aptitudes para aportar valor a la organización mediante la innovación y el desarrollo de soluciones eficaces. Promedio distinguido durante todo el ciclo universitario.</p>
-			</div>
+            <div class="flex flex-col gap-5 max-w-[900px] text-center">
+                <p class="text-3xl font-bold">Perfil</p>
+                <p>
+                    Ingeniero de Sistemas con experiencia de 2 años y proximo a
+                    grado de Matemáticas. Competente en programación y
+                    matemáticas aplicadas, con énfasis en ciencia de datos,
+                    desarrollo FullStack, modelado de bases de datos. Dominio
+                    avanzado en lenguajes de programación como Python y
+                    JavaScript. Capaz de diseñar, desarrollar y optimizar
+                    sistemas con enfoque en la resolución de problemas
+                    complejos. Orientado a resultados, con un alto nivel de
+                    motivación, compromiso y responsabilidad. Destacada
+                    capacidad de trabajo en equipo y atención al detalle. Con
+                    aptitudes para aportar valor a la organización mediante la
+                    innovación y el desarrollo de soluciones eficaces. Promedio
+                    distinguido durante todo el ciclo universitario.
+                </p>
+            </div>
         </section>
-        <section></section>
+        <section>
+            <Carousel />
+        </section>
     </article>
 </Main>
