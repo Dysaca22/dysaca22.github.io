@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon/components";
+
+const {
+    icon_name,
+    icon_size = 20,
+    text = "",
+    link = "",
+    onclick = "",
+    size = 35,
+    color = "black",
+} = Astro.props;
+---
+
+<style>
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: var(--size-btn);
+        height: var(--size-btn);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition-duration: 0.3s;
+        background-color: var(--color-btn);
+    }
+
+    .sign {
+        width: 100%;
+        transition-duration: 0.3s;
+    }
+
+    .text {
+        position: absolute;
+        right: 0%;
+        width: 0%;
+        opacity: 0;
+        color: white;
+        font-size: 1.2em;
+        font-weight: 600;
+        transition-duration: 0.3s;
+    }
+
+    .button:hover {
+        width: 125px;
+        border-radius: 40px;
+        transition-duration: 0.3s;
+    }
+
+    .button:hover .sign {
+        width: 30%;
+        transition-duration: 0.3s;
+        padding: 0;
+        padding-left: 20px;
+    }
+
+    .button:hover .text {
+        opacity: 1;
+        width: 70%;
+        transition-duration: 0.3s;
+        padding-right: 10px;
+    }
+
+    .button:active {
+        transform: translate(2px, 2px);
+    }
+</style>
+
+<button
+    class="button"
+    style={`--size-btn: ${size}px; --color-btn: ${color};`}
+    onclick={`${onclick} ${link ? `window.open('${link}', '_blank')` : ""}`}
+>
+    <div class="sign p-1 flex justify-center items-center">
+        <Icon class="text-white" name={icon_name} size={icon_size} />
+    </div>
+
+    <div class="text">{text}</div>
+</button>

@@ -2,6 +2,8 @@
 import { Icon } from "astro-icon/components";
 
 const { gap = 40 } = Astro.props;
+
+const style_gap = `gap-[${gap}px]`;
 ---
 
 <astro-carousel data-gap={gap}>
@@ -9,15 +11,9 @@ const { gap = 40 } = Astro.props;
         <div class="w-full overflow-hidden">
             <div
                 id="carousel"
-                class:list={["flex transition-transform duration-300 ease-in-out", `gap-[${gap}px]`]}
+                class:list={["flex flex-row transition-transform duration-300 ease-in-out", style_gap]}
             >
-                {
-                    [1, 2, 3, 4, 5].map((num) => (
-                        <div class="min-w-[500px] h-60 flex-shrink-0 bg-blue-200 rounded-lg shadow-md p-6">
-                            Card {num}
-                        </div>
-                    ))
-                }
+                <slot />
             </div>
         </div>
         <divc class="flex flex-row gap-20 items-center justify-center">

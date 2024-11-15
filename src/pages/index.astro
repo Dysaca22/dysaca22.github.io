@@ -1,8 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+import { projects } from "@js/projects";
 
-import Main from "@layouts/Main.astro";
 import Carousel from "@components/Carousel.astro";
+import Button from "@components/Button.astro";
+import Main from "@layouts/Main.astro";
+import ProjectCard from "@components/ProjectCard.astro";
 ---
 
 <Main>
@@ -72,9 +75,24 @@ import Carousel from "@components/Carousel.astro";
         <section class="flex flex-col gap-5">
             <div class="flex items-center justify-between">
                 <p class="text-2xl font-bold">Top Proyectos</p>
-                <a class="px-5 border-b border-black font-semibold" href="/projects">Ver todos</a>
+                <a
+                    class="px-5 border-b border-black font-semibold"
+                    href="/projects">Ver todos</a
+                >
             </div>
-            <Carousel gap={40} />
+            <Carousel gap={40}>
+                {
+                    projects.map(({ title, description, image, link, tag }) => (
+                        <ProjectCard
+                            title={title}
+                            description={description}
+                            image={image}
+                            link={link}
+                            tag={tag}
+                        />
+                    ))
+                }
+            </Carousel>
         </section>
     </article>
 </Main>
