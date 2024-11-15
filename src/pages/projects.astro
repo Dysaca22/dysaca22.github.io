@@ -1,9 +1,80 @@
 ---
+import { projects } from "@js/projects";
+
+import ProjectCard from "@components/ProjectCard.astro";
 import Main from "@layouts/Main.astro";
 
 const title = "Proyectos";
+const tags = projects.map(({ tag }) => tag);
 ---
 
 <Main title={title}>
-	Hola
+    <article class="md:mx-20 p-5 flex flex-col gap-10">
+        <div
+            class="flex flex-row flex-wrap gap-5 justify-between items-stretch"
+        >
+            <input
+                type="text"
+                placeholder="Buscar por nombre..."
+                class="px-4 py-2 border rounded-lg min-w-[200px] flex-grow-[2] max-w-[500px]"
+                id="searchInput"
+            />
+            <select
+                class="px-4 py-2 border rounded-lg min-w-[200px] flex-1 flex-grow-0 cursor-pointer"
+                id="tagFilter"
+            >
+                <option value="">Todos las categorías</option>
+                {tags.map((tag) => <option value={tag}>{tag}</option>)}
+            </select>
+        </div>
+        <section class="flex flex-row flex-wrap justify-center gap-10" id="projectsGrid">
+            {
+                projects.map(({ title, description, image, link, tag }) => (
+                    <ProjectCard
+                        title={title}
+                        description={description}
+                        image={image}
+                        link={link}
+                        tag={tag}
+                    />
+                ))
+            }
+        </section>
+    </article>
+
+    <script>
+        const searchInput = document.getElementById("searchInput");
+        const tagFilter = document.getElementById("tagFilter");
+        const projectsGrid = document.getElementById("projectsGrid");
+
+        function filterProjects() {
+            const searchTerm = (searchInput as HTMLInputElement).value
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "");
+            const selectedTag = (
+                tagFilter as HTMLSelectElement
+            ).value.toLowerCase();
+            const projectCards = projectsGrid.children;
+
+            Array.from(projectCards).forEach((card) => {
+                const title = card
+                    .querySelector("[project-title]")
+                    .textContent.toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+                const tag = card
+                    .querySelector("[project-tag]")
+                    .textContent.toLowerCase();
+
+                const matchesSearch = title.includes(searchTerm);
+                const matchesTag = selectedTag === "" || tag === selectedTag;
+
+                (card as HTMLElement).style.display =
+                    matchesSearch && matchesTag ? "flex" : "none";
+            });
+        }
+        searchInput.addEventListener("input", filterProjects);
+        tagFilter.addEventListener("change", filterProjects);
+    </script>
 </Main>

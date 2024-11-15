@@ -12,7 +12,7 @@ const { title, description, image, link, tag } = Astro.props;
         class="absolute top-0 right-0 bg-white rounded-es-2xl z-10 pointer-events-none"
     >
         <div class="relative w-full h-full">
-            <p class="py-1 px-3">{tag}</p>
+            <p class="py-1 px-3" project-tag>{tag}</p>
             <Icon class="absolute right-full top-0 text-white rotate-90" name="inrounded-corner" size={5} />
             <Icon class="absolute right-0 top-full text-white rotate-90" name="inrounded-corner" size={5} />
         </div>
@@ -26,7 +26,7 @@ const { title, description, image, link, tag } = Astro.props;
         />
     </figure>
     <div class="flex flex-col items-baseline gap-2 px-5 h-full p-4 border rounded-es-2xl rounded-ee-2xl">
-        <p class="text-xl font-semibold">{title}</p>
+        <p class="text-xl font-semibold" project-title>{title}</p>
         <p>{description}</p>
         <div class="mt-auto ml-auto">
             <Button text="Ver" link={link} icon_name="open" />
