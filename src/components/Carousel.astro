@@ -1,33 +1,34 @@
 ---
 import { Icon } from "astro-icon/components";
 
-
+const { gap = 40 } = Astro.props;
 ---
 
-<astro-carousel>
-    <div class="relative w-full overflow-hidden">
-        <div
-            id="carousel"
-            class="flex gap-4 transition-transform duration-300 ease-in-out mx-10"
-        >
-            {
-                [1, 2, 3, 4, 5].map((num) => (
-                    <div class="min-w-[500px] flex-shrink-0 bg-white rounded-lg shadow-md p-6">
-                        Card {num}
-                    </div>
-                ))
-            }
-        </div>
-
+<astro-carousel data-gap={gap}>
+    <div class:list={["flex flex-row items-center justify-between", `gap-[${gap}px]`]}>
         <button
             id="prev"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white"
+            class="text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white"
         >
             <Icon name="left" size={25} />
         </button>
+        <div class="w-full overflow-hidden">
+            <div
+                id="carousel"
+                class:list={["flex transition-transform duration-300 ease-in-out", `gap-[${gap}px]`]}
+            >
+                {
+                    [1, 2, 3, 4, 5].map((num) => (
+                        <div class="min-w-[500px] h-60 flex-shrink-0 bg-blue-200 rounded-lg shadow-md p-6">
+                            Card {num}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
         <button
             id="next"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white"
+            class="text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white"
         >
             <Icon name="right" size={25} />
         </button>
@@ -40,6 +41,7 @@ import { Icon } from "astro-icon/components";
         prevButton: HTMLElement;
         nextButton: HTMLElement;
         currentIndex: number;
+        gap: number;
 
         constructor() {
             super();
@@ -48,10 +50,10 @@ import { Icon } from "astro-icon/components";
             this.prevButton = this.querySelector("#prev");
             this.nextButton = this.querySelector("#next");
             this.currentIndex = 0;
+            this.gap = Number(this.dataset.gap) || 40;
         }
 
         connectedCallback() {
-            this.updateCarousel();
             window.addEventListener("resize", this.updateCarousel);
             this.nextButton.addEventListener("click", () => {
                 if (this.currentIndex < this.carousel.children.length - 1) {
@@ -66,19 +68,23 @@ import { Icon } from "astro-icon/components";
                     this.updateCarousel();
                 }
             });
+            this.updateCarousel();
         }
 
         updateCarousel() {
-            const cardWidth = this.carousel.children[0].offsetWidth + 16; // Card width + gap
+            const cardWidth =
+                (this.carousel.children[0] as HTMLElement).offsetWidth +
+                this.gap;
             this.carousel.style.transform = `translateX(-${this.currentIndex * cardWidth}px)`;
 
-            // Show/hide buttons based on the current index
-            this.prevButton.style.display =
-                this.currentIndex === 0 ? "none" : "block";
-            this.nextButton.style.display =
+            this.prevButton.classList.toggle(
+                "invisible",
+                this.currentIndex === 0
+            );
+            this.nextButton.classList.toggle(
+                "invisible",
                 this.currentIndex === this.carousel.children.length - 1
-                    ? "none"
-                    : "block";
+            );
         }
     }
 
