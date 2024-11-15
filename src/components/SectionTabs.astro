@@ -1,0 +1,82 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { name, options = [], bg_color = "#cdd7c3" } = Astro.props;
+---
+
+<style define:vars={{ bg_color }}>
+    .radio-inputs input:checked + .name {
+        background-color: var(--bg_color);
+        font-weight: 600;
+    }
+
+    .radio-inputs input:checked ~ svg {
+        display: block;
+    }
+</style>
+
+<astro-section-tabs class="w-full">
+    <div class="flex flex-row gap-10 ml-10 radio-inputs">
+        {
+            options.map(({ label, id }, index) => (
+                <label class="relative">
+                    <input
+                        class="hidden radio"
+                        data-sec={id}
+                        type="radio"
+                        name={name}
+                        checked={index === 0}
+                    />
+                    <span class="name cursor-pointer flex justify-center items-center px-3 py-2 rounded-t-2xl">
+                        {label}
+                    </span>
+                    <Icon
+                        class="absolute left-full bottom-0 -rotate-90 hidden"
+                        style={`color: ${bg_color};`}
+                        name="inrounded-corner"
+                        size={10}
+                        />
+                    <Icon
+                        class="absolute right-full bottom-0 -rotate-180 hidden"
+                        style={`color: ${bg_color};`}
+                        name="inrounded-corner"
+                        size={10}
+                    />
+                </label>
+            ))
+        }
+    </div>
+    <div class="rounded-2xl p-5 w-full" style={`background-color: ${bg_color};`} section-tabs>
+        <slot />
+    </div>
+</astro-section-tabs>
+
+<script>
+    class AstroSectionTabs extends HTMLElement {
+        tabContents: Element;
+
+        constructor() {
+            super();
+            const radioButtons = this.querySelectorAll("input");
+            this.tabContents = this.querySelector("[section-tabs]");
+
+            radioButtons.forEach((btn) =>
+                btn.addEventListener("change", () => {
+                    this.openCloseTab(btn.dataset.sec);
+                })
+            );
+            this.openCloseTab((this.querySelector("input:checked") as HTMLElement).dataset.sec)
+        }
+
+        openCloseTab(id: String) {
+            const tabContent = this.tabContents.querySelector(`#${id}`);
+            [...this.tabContents.children].forEach((sec) => {
+                console.log(sec);
+                sec.classList.add("hidden");
+            });
+            tabContent.classList.remove("hidden");
+        }
+    }
+
+    customElements.define("astro-section-tabs", AstroSectionTabs);
+</script>

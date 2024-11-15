@@ -1,82 +1,74 @@
 ---
-import { Icon } from "astro-icon/components";
 
-const {
-    icon_name,
-    icon_size = 20,
-    text = "",
-    link = "",
-    onclick = "",
-    size = 35,
-    color = "black",
-} = Astro.props;
 ---
 
 <style>
-    .button {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: var(--size-btn);
-        height: var(--size-btn);
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
+    .box {
+        height: auto;
+        float: left;
+        transition: 0.5s linear;
         position: relative;
+        display: block;
         overflow: hidden;
-        transition-duration: 0.3s;
-        background-color: var(--color-btn);
+        text-align: center;
+        background: transparent;
     }
 
-    .sign {
-        width: 100%;
-        transition-duration: 0.3s;
-    }
-
-    .text {
+    .box:before {
         position: absolute;
-        right: 0%;
-        width: 0%;
-        opacity: 0;
-        color: white;
-        font-size: 1.2em;
-        font-weight: 600;
-        transition-duration: 0.3s;
+        content: "";
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        border-bottom: 1px solid transparent;
+        border-left: 1px solid transparent;
+        box-sizing: border-box;
+        transform: translateX(100%);
     }
 
-    .button:hover {
-        width: 125px;
-        border-radius: 40px;
-        transition-duration: 0.3s;
+    .box:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        border-top: 1px solid transparent;
+        border-right: 1px solid transparent;
+        box-sizing: border-box;
+        transform: translateX(-100%);
     }
 
-    .button:hover .sign {
-        width: 30%;
-        transition-duration: 0.3s;
-        padding: 0;
-        padding-left: 20px;
+    .box:hover:before {
+        border-color: black;
+        height: 100%;
+        transform: translateX(0);
+        transition:
+            0.3s transform linear,
+            0.3s height linear 0.3s;
     }
 
-    .button:hover .text {
-        opacity: 1;
-        width: 70%;
-        transition-duration: 0.3s;
-        padding-right: 10px;
+    .box:hover:after {
+        border-color: black;
+        height: 100%;
+        transform: translateX(0);
+        transition:
+            0.3s transform linear,
+            0.3s height linear 0.5s;
     }
 
-    .button:active {
-        transform: translate(2px, 2px);
+    button {
+        text-decoration: none;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background: transparent;
     }
 </style>
 
-<button
-    class="button"
-    style={`--size-btn: ${size}px; --color-btn: ${color};`}
-    onclick={`${onclick} ${link ? `window.open('${link}', '_blank')` : ""}`}
->
-    <div class="sign p-1 flex justify-center items-center">
-        <Icon class="text-white" name={icon_name} size={icon_size} />
-    </div>
-
-    <div class="text">{text}</div>
+<button>
+    <span class="box px-2 py-1">
+        <slot />
+    </span>
 </button>

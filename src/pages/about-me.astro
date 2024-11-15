@@ -1,9 +1,236 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import Main from "@layouts/Main.astro";
+import SectionTabs from "@components/SectionTabs.astro";
 
 const title = "Sobre mi";
+const tab_options = [
+    {
+        label: "Experiencia",
+        id: "sec_experience",
+    },
+    {
+        label: "Educación",
+        id: "sec_education",
+    },
+    {
+        label: "Habilidades",
+        id: "sec_skills",
+    },
+];
 ---
 
+<style>
+    .dotted {
+        background-image: linear-gradient(black 33%, rgba(255, 255, 255, 0) 0%);
+        background-position: left;
+        background-size: 1px 3px;
+        background-repeat: repeat-y;
+    }
+</style>
+
 <Main title={title}>
-	Hola
+    <div class="fixed bottom-14 right-10 group z-50 text-swamp-green-600">
+        <a
+            class="group relative"
+            href="docs/CV - Dylan Cantillo Arrieta.pdf"
+            target="_blank"
+        >
+            <Icon
+                class="w-8 hover:scale-125 duration-200 hover:stroke-swamp-green-500"
+                name="download-doc"
+                size={35}
+            />
+            <span
+                class="absolute w-[100px] -top-12 left-1/2 translate -translate-x-1/2 z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-xs text-center shadow-md transition-all duration-300 ease-in-out group-hover:scale-100"
+            >
+                Hoja de vida
+                <span></span>
+            </span>
+        </a>
+    </div>
+    <article class="md:mx-20 p-5 flex flex-row flex-wrap gap-20">
+        <SectionTabs name="about-me" options={tab_options}>
+            <section class="flex flex-col gap-5 relative" id="sec_experience">
+                <span
+                    class="dotted absolute top-10 left-1 w-2"
+                    style="height: calc(100% - 40px);"></span>
+                <p class="text-lg font-bold">Experiencia profesional</p>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">
+                        Desarrollador de Sistemas de Información Integrado
+                    </p>
+                    <div class="ml-2">
+                        <p class="text-gray-600">
+                            Universidad del Norte - abril a septiembre 2024
+                        </p>
+                        <p>
+                            Implementación de un sistema de información que
+                            centraliza y procesa datos geoespaciales y ambientales.
+                            Integración de diversas APIs y bases de datos para
+                            análisis y visualización de áreas protegidas y recursos
+                            hídricos.
+                        </p>
+                    </div>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">Desarrollador FullStack</p>
+                    <div class="ml-2">
+                        <p class="text-gray-600">
+                            Ingeniarte Soft SAS - mayo a octubre 2024
+                        </p>
+                        <p>
+                            Desarrollo de un aplicativo web completo para la gestión
+                            del proceso de alquiler de botes, desde la publicación y
+                            reserva hasta la devolución y calificación.
+                        </p>
+                    </div>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">Programador Jr</p>
+                    <div class="ml-2">
+                        <p class="text-gray-600">
+                            Ingeniarte Soft SAS - 2022 a Actualmente
+                        </p>
+                        <p>
+                            Parte de un equipo enfocado en el aprendizaje y mejora
+                            de habilidades técnicas cumpliendo diversas tareas en
+                            versiones de proyectos. Profundización en lenguajes de
+                            programación como Python, JavaScript y herramientas como
+                            Git bajo la tutela de superiores.
+                        </p>
+                    </div>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">Desarrollador y Soporte Técnico</p>
+                    <div class="ml-2">
+                        <p class="text-gray-600">
+                            Universidad del Norte - octubre de 2021, 2023, 2024
+                        </p>
+                        <p>
+                            Desarrollo de una plataforma web para la gestión y
+                            promoción de más de 100 eventos y más de 300
+                            conferencistas, asegurando su funcionamiento óptimo y
+                            prestando soporte técnico.
+                        </p>
+                    </div>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">Trainer de Python</p>
+                    <div class="ml-2">
+                        <p class="text-gray-600">
+                            Universidad del Norte - agosto a noviembre 2022
+                        </p>
+                        <p>
+                            Formación en Python (nivel básico e intermedio) a
+                            estudiantes universitarios, desarrollando competencias
+                            clave en programación y resolución de problemas.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section class="flex flex-col gap-5 relative" id="sec_education">
+                <span
+                    class="dotted absolute top-10 left-1 w-2"
+                    style="height: calc(100% - 40px);"></span>
+                <p class="text-lg font-bold">Formación Académica</p>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">
+                        Maestría en Ingeniería de Sistemas y Computación
+                    </p>
+                    <p class="text-gray-600">
+                        Universidad del Norte | 2024 - Actualmente
+                    </p>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">
+                        Ingeniería de Sistemas y Computación
+                    </p>
+                    <p class="text-gray-600">
+                        Universidad del Norte | 2019 - 2023 | Beca institucional
+                    </p>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">Matemáticas</p>
+                    <p class="text-gray-600">
+                        Universidad del Norte | 2020 - Actualmente| Beca Konder
+                    </p>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">Python para Ciencia de Datos</p>
+                    <p class="text-gray-600">
+                        Pontificia Universidad Católica de Chile | 2024
+                    </p>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">
+                        Introducción a la Ciencia de Datos Aplicada
+                    </p>
+                    <p class="text-gray-600">Universidad de los Andes | 2024</p>
+                </div>
+                <div class="ml-5 relative">
+                    <span
+                        class="absolute -left-4 top-[.5em] translate -translate-x-1/2 w-[5px] h-[5px] bg-black rounded-full"
+                    ></span>
+                    <p class="font-semibold">
+                        International Tutor Training Program Certification (CRLA)
+                    </p>
+                    <p class="text-gray-600">Universidad del Norte | 2023</p>
+                </div>
+            </section>
+            <section class="flex flex-col gap-2" id="sec_skills">
+                <p class="text-lg">Habilidades Técnicas</p>
+                <ul class="flex flex-col gap-2">
+                    <li class="">
+                        <span class="font-bold">Lenguajes</span>: Python,
+                        JavaScript, Java, SQL.
+                    </li>
+                    <li>
+                        <span class="font-bold">Tecnologías</span>: Html, Css,
+                        Node.js, Django, Astro, React, Tailwind.
+                    </li>
+                    <li>
+                        <span class="font-bold">Herramientas</span>: Git, GCP, AIs,
+                        dbt, Latex, Power Bi, SageMath.
+                    </li>
+                    <li>
+                        Programación, desarrollo y análisis de software/algoritmos.
+                    </li>
+                    <li>Análisis de datos y estadística.</li>
+                    <li>Pensamiento lógico-matemático.</li>
+                </ul>
+            </section>
+        </SectionTabs>
+    </article>
 </Main>
