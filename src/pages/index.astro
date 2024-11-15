@@ -52,7 +52,7 @@ import Carousel from "@components/Carousel.astro";
         <section class="flex items-center justify-center">
             <div class="flex flex-col gap-5 max-w-[900px] text-center">
                 <p class="text-3xl font-bold">Perfil</p>
-                <p>
+                <p class="mx-2">
                     Ingeniero de Sistemas con experiencia de 2 años y proximo a
                     grado de Matemáticas. Competente en programación y
                     matemáticas aplicadas, con énfasis en ciencia de datos,
@@ -70,11 +70,11 @@ import Carousel from "@components/Carousel.astro";
             </div>
         </section>
         <section class="flex flex-col gap-5">
-            <div class="flex items-baseline justify-between">
-                <p class="text-3xl font-bold">Proyectos</p>
-                <a class="px-5 py-1 border-b border-black font-semibold" href="/projects">Ver todos</a>
+            <div class="flex items-center justify-between">
+                <p class="text-2xl font-bold">Top Proyectos</p>
+                <a class="px-5 border-b border-black font-semibold" href="/projects">Ver todos</a>
             </div>
-            <Carousel />
+            <Carousel gap={40} />
         </section>
     </article>
 </Main>
