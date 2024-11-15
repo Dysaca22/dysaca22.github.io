@@ -82,7 +82,7 @@ import ProjectCard from "@components/ProjectCard.astro";
             </div>
             <Carousel gap={40}>
                 {
-                    projects.map(({ title, description, image, link, tag }) => (
+                    projects.filter(({ top }) => top).map(({ title, description, image, link, tag }) => (
                         <ProjectCard
                             title={title}
                             description={description}

@@ -6,6 +6,7 @@ interface Project {
     image: string;
     link: string;
     tag: string;
+    top: boolean;
 }
 
 declare module '@src/js/projects.js' {

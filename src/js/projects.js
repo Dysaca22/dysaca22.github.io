@@ -5,6 +5,7 @@ export const projects = [
         image: 'https://picsum.photos/1200/600',
         link: 'https://picsum.photos/1200/600',
         tag: 'tag1',
+        top: true,
     },
     {
         title: 'Project 2',
@@ -12,5 +13,6 @@ export const projects = [
         image: 'https://picsum.photos/1200/600',
         link: 'https://picsum.photos/1200/600',
         tag: 'tag2',
+        top: false,
     },
 ];
