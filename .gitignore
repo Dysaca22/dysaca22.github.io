@@ -25,6 +25,3 @@ pnpm-debug.log*
 
 # vscode setting folder
 .vscode/
-
-# github
-.github/
