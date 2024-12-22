@@ -1,6 +1,6 @@
 ---
+import { projects } from "@docs/projects.json";
 import { Icon } from "astro-icon/components";
-import { projects } from "@js/projects";
 
 import ProjectCard from "@components/ProjectCard.astro";
 import Carousel from "@components/Carousel.astro";
@@ -24,26 +24,26 @@ import Main from "@layouts/Main.astro";
                     class="absolute left-0 bottom-0 flex flex-col justify-start items-start gap-0"
                 >
                     <div
-                        class="relative px-4 md:px-8 py-4 rounded-se-2xl text-6xl font-bold bg-swamp-green-50"
+                        class="relative px-4 md:px-8 py-4 rounded-se-2xl text-6xl font-bold bg-catskill-white-50"
                     >
                         <h1 class="max-sm:text-3xl">Dylan</h1>
                         <Icon
-                            class="absolute left-full bottom-0 text-swamp-green-50 -rotate-90"
+                            class="absolute left-full bottom-0 text-catskill-white-50 -rotate-90"
                             name="inrounded-corner"
                             size={20}
                         />
                         <Icon
-                            class="absolute left-0 bottom-full text-swamp-green-50 -rotate-90"
+                            class="absolute left-0 bottom-full text-catskill-white-50 -rotate-90"
                             name="inrounded-corner"
                             size={20}
                         />
                     </div>
                     <div
-                        class="relative px-4 md:px-8 py-4 rounded-se-2xl text-6xl font-bold bg-swamp-green-50"
+                        class="relative px-4 md:px-8 py-4 rounded-se-2xl text-6xl font-bold bg-catskill-white-50"
                     >
                         <h1 class="max-sm:text-3xl">Cantillo Arrieta</h1>
                         <Icon
-                            class="absolute left-full bottom-0 text-swamp-green-50 -rotate-90"
+                            class="absolute left-full bottom-0 text-catskill-white-50 -rotate-90"
                             name="inrounded-corner"
                             size={20}
                         />
@@ -81,15 +81,17 @@ import Main from "@layouts/Main.astro";
             </div>
             <Carousel gap={40}>
                 {
-                    projects.filter(({ top }) => top).map(({ title, description, image, link, tag }) => (
-                        <ProjectCard
-                            title={title}
-                            description={description}
-                            image={image}
-                            link={link}
-                            tag={tag}
-                        />
-                    ))
+                    projects
+                        .filter(({ top }) => top)
+                        .map(({ title, description, image, link, tag }) => (
+                            <ProjectCard
+                                title={title}
+                                description={description}
+                                image={image}
+                                link={link}
+                                tag={tag}
+                            />
+                        ))
                 }
             </Carousel>
         </section>

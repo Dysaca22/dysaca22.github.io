@@ -1,0 +1,84 @@
+{
+    "projects": [
+        {
+            "title": "LogNS-RPL: RPL-based secure routing protocol using Log-normal shadowing statistical model",
+            "description": "Colaboración en la publicación de un artículo en la revista International Journal of Artificial Intelligence (IJAI) sobre el protocolo de enrutamiento basado en RPL que utiliza la función Log-normal y shadowing como modelo estadístico para establecer una métrica de confianza entre los nodos de una red inalámbrica, para detectar posibles ataques a la red.",
+            "image": "/images/IJAI.png",
+            "link": "http://www.ceser.in/ceserp/index.php/ijai/article/view/6913",
+            "tag": "IoT",
+            "top": true
+        },
+        {
+            "title": "Nuevo enfoque de optimización metaheurística: aplicación en granjas eólicas",
+            "description": "Método innovador de optimización que combina técnicas metaheurísticas para la mejora del diseño y operación de granjas eólicas, abordando limitaciones tradicionales y validando su eficacia con datos históricos de viento en Colombia.",
+            "image": "/images/parque-eolico.jpg",
+            "link": "https://github.com/Dysaca22/dashboard_wind_speed",
+            "tag": "Ciencia de datos",
+            "top": true
+        },
+        {
+            "title": "Supuestos y limitaciones en los modelos de clases latentes",
+            "description": "Tesis de grado en una revisión sistemática de la literatura sobre Modelos de Clases Latentes, analizando supuestos, limitaciones y estrategias para mejorar su eficiencia y aplicabilidad en la toma de decisiones basada en datos.",
+            "image": "/images/estadistica.jpg",
+            "link": "/docs/Modelos de clases latentes.pdf",
+            "tag": "Estadística",
+            "top": true
+        },
+        {
+            "title": "Minería de Datos Covid-19 Colombia",
+            "description": "Consolidación de progreso con el proyecto aplicando minería de datos, técnicas de aprendizaje automático y habilidades prácticas con Python, en base a los datos del Covid-19 en Colombia.",
+            "image": "/images/mineria-covid-19.png",
+            "link": "https://dysaca22.github.io/dm-datawarehousing/web/",
+            "tag": "Análisis de datos",
+            "top": true
+        },
+        {
+            "title": "Informe del Covid-19 Colombia",
+            "description": "Proyecto en Java del análisis del número básico de reproducción temporal y su relación con el logaritmo de los infectados activos. También se examinan los infectados nuevos reportados oficialmente y una estimación de los casos reales.",
+            "image": "/images/covid-19.png",
+            "link": "https://github.com/Dysaca22/Informe-del-Covid-19-Colombia",
+            "tag": "Análisis de datos",
+            "top": true
+        },
+        {
+            "title": "Modelado y estudio de la topología de la botella de Klein y otros",
+            "description": "El proyecto de la clase de topología estudia las homologías 0 y 1 utilizando el complejo de Vietoris-Rips, gráficos, implementación y código en Python.",
+            "image": "/images/botella de Klein.png",
+            "link": "https://github.com/Dysaca22/Toplogia",
+            "tag": "Matemáticas",
+            "top": true
+        },
+        {
+            "title": "Solución cubo Rubik 2x2 método A*",
+            "description": "Diseño e implementación de un algoritmo de búsqueda A* utilizando Python para resolver un cubo de Rubik de 2x2 con métodos visuales.",
+            "image": "/images/cubo 2x2.png",
+            "link": "https://github.com/Dysaca22/Solucion-cubo-Rubik-2x2-m-todo-A-",
+            "tag": "IA",
+            "top": false
+        },
+        {
+            "title": "Videojuego \"Forgotten History\"",
+            "description": "Forgotten History está realizado bajo un paradigma de programación modular. Es un videojuego de rol en 2d que busca visibilizar a mujeres que no han tenido el reconocimiento que merecen por su aporte a la humanidad.",
+            "image": "/images/forgotten-history.png",
+            "link": "https://github.com/Dysaca22/Proyecto-Forgotten-History-",
+            "tag": "Videojuego",
+            "top": false
+        },
+        {
+            "title": "Bot Telegram de relaciones de recurrencia",
+            "description": "Bot de Telegram interactivo que valida entradas, explica sus comandos, resuelve relaciones de recurrencia con casos base, identifica subsecuencias Fibonacci en listas de enteros y genera grafos simples aleatorios según parámetros definidos, incluyendo visualización gráfica.",
+            "image": "/images/telegram.jpg",
+            "link": "https://github.com/Dysaca22/Bot-Telegram",
+            "tag": "Bot",
+            "top": false
+        },
+        {
+            "title": "Congruencia Cuadratica",
+            "description": "Investigación de la resolución de congruencias cuadráticas y su impacto en matemáticas e informática, analizando algoritmos, tiempos de ejecución, complejidad y su relación con problemas NP-Hard.",
+            "image": "/images/congruencia-cuadratica.jpg",
+            "link": "https://github.com/Dysaca22/Congruencia-Cuadratica",
+            "tag": "Matemáticas",
+            "top": false
+        }
+    ]
+}

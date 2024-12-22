@@ -1,55 +1,77 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { name, options = [], bg_color = "#cdd7c3" } = Astro.props;
+const { name, options = [] } = Astro.props;
 ---
 
-<style define:vars={{ bg_color }}>
+<astro-section-tabs class="w-full">
+    <div class="relative">
+        <button
+            class="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 hidden hover:bg-gray-100 rounded-full transition-all"
+        >
+            <Icon name="left" size={20} />
+        </button>
+        <div
+            class="flex flex-row gap-10 mx-10 radio-inputs overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+        >
+            <div class="flex gap-5 min-w-max px-2">
+                {
+                    options.map(({ label, id }, index) => (
+                        <label class="relative snap-start">
+                            <input
+                                class="hidden radio"
+                                data-sec={id}
+                                type="radio"
+                                name={name}
+                                checked={index === 0}
+                            />
+                            <span class="name cursor-pointer flex justify-center items-center px-5 py-2 rounded-t-2xl whitespace-nowrap hover:py-3 transition-all ease-linear duration-200 font-medium">
+                                {label}
+                            </span>
+                            <Icon
+                                class:list={[
+                                    "absolute left-full bottom-0 -rotate-90 hidden",
+                                    "text-catskill-white-200",
+                                ]}
+                                name="inrounded-corner"
+                                size={10}
+                            />
+                            <Icon
+                                class:list={[
+                                    "absolute right-full bottom-0 -rotate-180 hidden",
+                                    "text-catskill-white-200",
+                                ]}
+                                name="inrounded-corner"
+                                size={10}
+                            />
+                        </label>
+                    ))
+                }
+            </div>
+        </div>
+        <button
+            class="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 hidden hover:bg-gray-100 rounded-full transition-all"
+        >
+            <Icon name="right" size={20} />
+        </button>
+    </div>
+    <div
+        class:list={["rounded-2xl p-5 w-full shadow-md", "bg-catskill-white-200"]}
+        section-tabs
+    >
+        <slot />
+    </div>
+</astro-section-tabs>
+
+<style>
     .radio-inputs input:checked + .name {
-        background-color: var(--bg_color);
-        font-weight: 600;
+        @apply bg-catskill-white-200 font-semibold py-3;
     }
 
     .radio-inputs input:checked ~ svg {
         display: block;
     }
 </style>
-
-<astro-section-tabs class="w-full">
-    <div class="flex flex-row gap-10 ml-10 radio-inputs">
-        {
-            options.map(({ label, id }, index) => (
-                <label class="relative">
-                    <input
-                        class="hidden radio"
-                        data-sec={id}
-                        type="radio"
-                        name={name}
-                        checked={index === 0}
-                    />
-                    <span class="name cursor-pointer flex justify-center items-center px-3 py-2 rounded-t-2xl">
-                        {label}
-                    </span>
-                    <Icon
-                        class="absolute left-full bottom-0 -rotate-90 hidden"
-                        style={`color: ${bg_color};`}
-                        name="inrounded-corner"
-                        size={10}
-                        />
-                    <Icon
-                        class="absolute right-full bottom-0 -rotate-180 hidden"
-                        style={`color: ${bg_color};`}
-                        name="inrounded-corner"
-                        size={10}
-                    />
-                </label>
-            ))
-        }
-    </div>
-    <div class="rounded-2xl p-5 w-full" style={`background-color: ${bg_color};`} section-tabs>
-        <slot />
-    </div>
-</astro-section-tabs>
 
 <script>
     class AstroSectionTabs extends HTMLElement {
@@ -59,19 +81,46 @@ const { name, options = [], bg_color = "#cdd7c3" } = Astro.props;
             super();
             const radioButtons = this.querySelectorAll("input");
             this.tabContents = this.querySelector("[section-tabs]");
+            const scrollContainer = this.querySelector(".radio-inputs");
+            const leftButton = this.querySelector("button:first-of-type");
+            const rightButton = this.querySelector("button:last-of-type");
 
             radioButtons.forEach((btn) =>
                 btn.addEventListener("change", () => {
                     this.openCloseTab(btn.dataset.sec);
                 })
             );
-            this.openCloseTab((this.querySelector("input:checked") as HTMLElement).dataset.sec)
+
+            const checkScroll = () => {
+                const { scrollLeft, scrollWidth, clientWidth } =
+                    scrollContainer;
+                leftButton.classList.toggle("hidden", scrollLeft <= 0);
+                rightButton.classList.toggle(
+                    "hidden",
+                    scrollLeft + clientWidth >= scrollWidth
+                );
+            };
+
+            scrollContainer.addEventListener("scroll", checkScroll);
+            window.addEventListener("resize", checkScroll);
+            checkScroll();
+
+            leftButton.addEventListener("click", () => {
+                scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
+            });
+
+            rightButton.addEventListener("click", () => {
+                scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
+            });
+
+            this.openCloseTab(
+                (this.querySelector("input:checked") as HTMLElement).dataset.sec
+            );
         }
 
         openCloseTab(id: String) {
             const tabContent = this.tabContents.querySelector(`#${id}`);
             [...this.tabContents.children].forEach((sec) => {
-                console.log(sec);
                 sec.classList.add("hidden");
             });
             tabContent.classList.remove("hidden");

@@ -18,9 +18,9 @@
       "@icons/*": [
         "./src/components/icons/*"
       ],
-      "@js/*": [
-        "./src/js/*"
-      ]
+      "@docs/*": [
+        "./src/docs/*"
+      ],
     }
   }
 }

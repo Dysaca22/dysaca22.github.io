@@ -1,11 +1,11 @@
 ---
-import { projects } from "@js/projects";
+import { projects } from "@docs/projects.json";
 
 import ProjectCard from "@components/ProjectCard.astro";
 import Main from "@layouts/Main.astro";
 
 const title = "Proyectos";
-const tags = projects.map(({ tag }) => tag);
+const tags = [...new Set(projects.map(({ tag }) => tag))].sort();
 ---
 
 <Main title={title}>

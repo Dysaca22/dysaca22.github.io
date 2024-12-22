@@ -1,8 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import Particles from "@components/Particles.astro";
-
 const socials = [
     {
         name: "GitHub",
@@ -24,16 +22,11 @@ const socials = [
         url: "mailto:dylancantilloa@gmail.com",
         icon: "mail",
     },
-];
-
-const particle_imgs = [
-    "images/skills/python-logo.png",
-    "images/skills/js-logo.png",
-    "images/skills/sql-logo.png",
-    "images/skills/latex-logo.png",
-    "images/skills/gcp-logo.png",
-    "images/skills/power-bi-logo.png",
-    "images/skills/java-logo.png",
+    {
+        name: "Hoja de vida",
+        url: "docs/CV - Dylan Cantillo Arrieta.pdf",
+        icon: "cv",
+    },
 ];
 ---
 
@@ -45,26 +38,21 @@ const particle_imgs = [
     }
 </style>
 
-<footer class="mt-auto">
-    <Particles particle_imgs={particle_imgs}>
-        <div
-            class="flex flex-row items-center justify-center gap-4 absolute top-0 left-0 w-full h-full"
-        >
-            {
-                socials.map(({ name, url, icon }) => (
-                    <a class="group relative" href={url} target="_blank">
-                        <Icon
-                            class="w-8 hover:scale-125 duration-200 hover:stroke-blue-500"
-                            name={icon}
-                            size={25}
-                        />
-                        <span class="absolute -top-12 left-0 z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100">
-                            {name}
-                            <span />
-                        </span>
-                    </a>
-                ))
-            }
-        </div>
-    </Particles>
+<footer class="mt-auto p-10 flex flex-col items-center justify-center">
+    <div class="flex flex-row items-center justify-center gap-4">
+        {
+            socials.map(({ name, url, icon }) => (
+                <a class="group relative" href={url} target="_blank">
+                    <Icon
+                        class="w-8 hover:scale-125 duration-200 hover:stroke-blue-500"
+                        name={icon}
+                        size={25}
+                    />
+                    <span class="absolute -top-12 left-0 z-20 origin-left scale-0 px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:scale-100 whitespace-nowrap">
+                        {name}
+                    </span>
+                </a>
+            ))
+        }
+    </div>
 </footer>

@@ -15,7 +15,7 @@ const { gap = 40 } = Astro.props;
                 <slot />
             </div>
         </div>
-        <divc class="flex flex-row gap-20 items-center justify-center">
+        <div class="flex flex-row gap-20 items-center justify-center">
             <button
                 id="prev"
                 class="text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white md:absolute md:-left-16 md:top-1/2 md:transform md:-translate-y-1/2"
@@ -28,7 +28,7 @@ const { gap = 40 } = Astro.props;
             >
                 <Icon name="right" size={25} />
             </button>
-        </divc>
+        </div>
     </div>
 </astro-carousel>
 
@@ -51,7 +51,7 @@ const { gap = 40 } = Astro.props;
         }
 
         connectedCallback() {
-            window.addEventListener("resize", this.updateCarousel);
+            window.addEventListener("resize", this.updateCarousel.bind(this));
             this.nextButton.addEventListener("click", () => {
                 if (this.currentIndex < this.carousel.children.length - 1) {
                     this.currentIndex++;

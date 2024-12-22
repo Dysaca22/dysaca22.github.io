@@ -34,7 +34,7 @@ const links = [
                 links.map(({ href, content }) => (
                     <li>
                         <a
-                            class="px-5 py-1 border-b border-swamp-green-900 font-semibold hover:py-2 transition-all ease-linear duration-200"
+                            class="px-5 py-1 border-b border-catskill-white-900 font-semibold hover:py-2 transition-all ease-linear duration-200"
                             href={href}
                         >
                             {content}
@@ -63,12 +63,14 @@ const links = [
             </ul>
         </div>
     </nav>
-    <Button>
-        <div class="px-5 py-1 flex gap-2 items-center">
-            <Icon name="mail" size={16} />
-            Contactame
-        </div>
-    </Button>
+    <a href="mailto:dylancantilloa@gmail.com">
+        <Button>
+            <div class="px-5 py-1 flex gap-2 items-center">
+                <Icon name="mail" size={16} />
+                Contácteme
+            </div>
+        </Button>
+    </a>
 </header>
 
 <script>

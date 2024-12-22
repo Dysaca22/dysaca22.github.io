@@ -1,0 +1,94 @@
+{
+    "experiences": [
+        {
+            "title": "Desarrollador de Sistemas de Información Integrado",
+            "company": "Universidad del Norte",
+            "date": "abril a septiembre 2024",
+            "description": "Implementación de un sistema de información que centraliza y procesa datos geoespaciales y ambientales. Integración de diversas APIs y bases de datos para análisis y visualización de áreas protegidas y recursos hídricos."
+        },
+        {
+            "title": "Desarrollador FullStack",
+            "company": "Ingeniarte Soft SAS",
+            "date": "mayo a octubre 2024",
+            "description": "Desarrollo de un aplicativo web completo para la gestión del proceso de alquiler de botes, desde la publicación y reserva hasta la devolución y calificación."
+        },
+        {
+            "title": "Programador Jr",
+            "company": "Ingeniarte Soft SAS",
+            "date": "2022 a Actualmente",
+            "description": "Parte de un equipo enfocado en el aprendizaje y mejora de habilidades técnicas cumpliendo diversas tareas en versiones de proyectos. Profundización en lenguajes de programación como Python, JavaScript y herramientas como Git bajo la tutela de superiores."
+        },
+        {
+            "title": "Desarrollador y Soporte Técnico",
+            "company": "Universidad del Norte",
+            "date": "octubre de 2021, 2023, 2024",
+            "description": "Desarrollo de una plataforma web para la gestión y promoción de más de 100 eventos y más de 300 conferencistas, asegurando su funcionamiento óptimo y prestando soporte técnico."
+        },
+        {
+            "title": "Trainer de Python",
+            "company": "Universidad del Norte",
+            "date": "agosto a noviembre 2022",
+            "description": "Formación en Python (nivel básico e intermedio) a estudiantes universitarios, desarrollando competencias clave en programación y resolución de problemas."
+        }
+    ],
+    "education": [
+        {
+            "title": "Maestría en Ingeniería de Sistemas y Computación",
+            "institution": "Universidad del Norte",
+            "date": "2024 - Actualmente"
+        },
+        {
+            "title": "Ingeniería de Sistemas y Computación",
+            "institution": "Universidad del Norte",
+            "date": "2019 - 2023",
+            "extra": "Beca institucional"
+        },
+        {
+            "title": "Matemáticas",
+            "institution": "Universidad del Norte",
+            "date": "2020 - Actualmente",
+            "extra": "Beca Konder"
+        },
+        {
+            "title": "Python para Ciencia de Datos",
+            "institution": "Pontificia Universidad Católica de Chile",
+            "date": "2024"
+        },
+        {
+            "title": "Introducción a la Ciencia de Datos Aplicada",
+            "institution": "Universidad de los Andes",
+            "date": "2024"
+        },
+        {
+            "title": "International Tutor Training Program Certification (CRLA)",
+            "institution": "Universidad del Norte",
+            "date": "2023"
+        }
+    ],
+    "skills": [
+        {
+            "category": "Lenguajes",
+            "items": "Python, JavaScript, Java, SQL."
+        },
+        {
+            "category": "Tecnologías",
+            "items": "Html, Css, Node.js, Django, Astro, React, Tailwind."
+        },
+        {
+            "category": "Herramientas",
+            "items": "Git, GCP, AIs, dbt, Latex, Power Bi, SageMath."
+        },
+        {
+            "category": null,
+            "items": "Programación, desarrollo y análisis de software/algoritmos."
+        },
+        {
+            "category": null,
+            "items": "Análisis de datos y estadística."
+        },
+        {
+            "category": null,
+            "items": "Pensamiento lógico-matemático."
+        }
+    ]
+}
