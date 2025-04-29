@@ -1,11 +1,19 @@
 {
     "projects": [
         {
+            "title": "Statistical package for computing precision covariance matrices via modified Cholesky decomposition",
+            "description": "Desarrollo de un paquete estadístico diseñado para calcular matrices de covarianza de precisión mediante la descomposición de Cholesky modificada, adaptado a los Modelos de Circulación General Atmosférica (MCGA).",
+            "image": "/images/mundo-poligonos.jpg",
+            "link": "https://www.sciencedirect.com/science/article/pii/S2352711025000925",
+            "tag":"Articulo",
+            "top": true
+        },
+        {
             "title": "LogNS-RPL: RPL-based secure routing protocol using Log-normal shadowing statistical model",
             "description": "Colaboración en la publicación de un artículo en la revista International Journal of Artificial Intelligence (IJAI) sobre el protocolo de enrutamiento basado en RPL que utiliza la función Log-normal y shadowing como modelo estadístico para establecer una métrica de confianza entre los nodos de una red inalámbrica, para detectar posibles ataques a la red.",
             "image": "/images/IJAI.png",
             "link": "http://www.ceser.in/ceserp/index.php/ijai/article/view/6913",
-            "tag": "IoT",
+            "tag": "Articulo",
             "top": true
         },
         {
