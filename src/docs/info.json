@@ -1,22 +1,28 @@
 {
     "experiences": [
         {
-            "title": "Desarrollador de Sistemas de Información Integrado",
+            "title": "Desarrollador Full-Stack & Soporte IT",
+            "company": "Trading Solutions",
+            "date": "octubre 2025 a Actualmente",
+            "description": "Responsable del diseño e implementación de lógica de negocio como columna vertebral de un TMS operativo. Priorización sobre reducción de costos, trazabilidad end-to-end y persistencia de datos para operaciones y KPIs."
+        },
+        {
+            "title": "Programador Jr",
+            "company": "Ingeniarte Soft",
+            "date": "2022 a 2025",
+            "description": "Parte de un equipo enfocado en el aprendizaje y mejora de habilidades técnicas cumpliendo diversas tareas en versiones de proyectos. Profundización en lenguajes de programación como Python, JavaScript y herramientas como Git bajo la tutela de superiores."
+        },
+        {
+            "title": "Desarrollador y Analista",
             "company": "Universidad del Norte",
             "date": "abril a septiembre 2024",
             "description": "Implementación de un sistema de información que centraliza y procesa datos geoespaciales y ambientales. Integración de diversas APIs y bases de datos para análisis y visualización de áreas protegidas y recursos hídricos."
         },
         {
-            "title": "Desarrollador FullStack",
-            "company": "Ingeniarte Soft SAS",
+            "title": "Desarrollador Full-Stack",
+            "company": "Ingeniarte Soft",
             "date": "mayo a octubre 2024",
             "description": "Desarrollo de un aplicativo web completo para la gestión del proceso de alquiler de botes, desde la publicación y reserva hasta la devolución y calificación."
-        },
-        {
-            "title": "Programador Jr",
-            "company": "Ingeniarte Soft SAS",
-            "date": "2022 a Actualmente",
-            "description": "Parte de un equipo enfocado en el aprendizaje y mejora de habilidades técnicas cumpliendo diversas tareas en versiones de proyectos. Profundización en lenguajes de programación como Python, JavaScript y herramientas como Git bajo la tutela de superiores."
         },
         {
             "title": "Desarrollador y Soporte Técnico",
@@ -72,12 +78,16 @@
             "items": "Python, JavaScript, Java, SQL."
         },
         {
-            "category": "Tecnologías",
-            "items": "Html, Css, Node.js, Django, Astro, React, Tailwind."
+            "category": "Backend & APIs",
+            "items": "Django, GCP, Node.js, APIs REST, lógica de negocio, modelado relacional."
+        },
+        {
+            "category": "Data/Analytics",
+            "items": "ETL, modelado de datos para métricas/KPIs, analítica operativa, SQL."
         },
         {
             "category": "Herramientas",
-            "items": "Git, GCP, AIs, dbt, Latex, Power Bi, SageMath."
+            "items": "Git, control de versiones, documentación técnica."
         },
         {
             "category": null,

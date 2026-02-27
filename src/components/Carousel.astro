@@ -9,7 +9,7 @@ const { gap = 40 } = Astro.props;
         <div class="w-full overflow-hidden">
             <div
                 id="carousel"
-                class="flex flex-row transition-transform duration-300 ease-in-out"
+                class="flex flex-row items-stretch transition-transform duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
                 style={`gap: ${gap}px;`}
             >
                 <slot />
@@ -18,13 +18,13 @@ const { gap = 40 } = Astro.props;
         <div class="flex flex-row gap-20 items-center justify-center">
             <button
                 id="prev"
-                class="text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white md:absolute md:-left-16 md:top-1/2 md:transform md:-translate-y-1/2"
+                class="text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 md:absolute md:-left-16 md:top-1/2 md:transform md:-translate-y-1/2"
             >
                 <Icon name="left" size={25} />
             </button>
             <button
                 id="next"
-                class="text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white md:absolute md:-right-16 md:top-1/2 md:transform md:-translate-y-1/2"
+                class="text-gray-600 p-2 rounded-full hover:bg-gray-600 hover:text-white transition-all duration-300 md:absolute md:-right-16 md:top-1/2 md:transform md:-translate-y-1/2"
             >
                 <Icon name="right" size={25} />
             </button>
@@ -65,6 +65,21 @@ const { gap = 40 } = Astro.props;
                     this.updateCarousel();
                 }
             });
+
+            // Shift + scroll vertical to navigate carousel
+            this.addEventListener("wheel", (e) => {
+                if (!e.shiftKey) return;
+                if (e.deltaY > 0 && this.currentIndex < this.carousel.children.length - 1) {
+                    e.preventDefault();
+                    this.currentIndex++;
+                    this.updateCarousel();
+                } else if (e.deltaY < 0 && this.currentIndex > 0) {
+                    e.preventDefault();
+                    this.currentIndex--;
+                    this.updateCarousel();
+                }
+            }, { passive: false });
+
             this.updateCarousel();
         }
 

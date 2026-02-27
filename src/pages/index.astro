@@ -9,7 +9,7 @@ import Main from "@layouts/Main.astro";
 
 <Main>
     <article class="md:mx-20 p-5 flex flex-col gap-20">
-        <section>
+        <section class="animate-on-scroll">
             <figure
                 class="relative w-full rounded-2xl"
                 style="height: calc(100vh - 120px);"
@@ -51,27 +51,15 @@ import Main from "@layouts/Main.astro";
                 </div>
             </figure>
         </section>
-        <section class="flex items-center justify-center">
+        <section class="flex items-center justify-center animate-on-scroll">
             <div class="flex flex-col gap-5 max-w-[900px] text-center">
-                <p class="text-3xl font-bold">Perfil</p>
+                <p class="text-3xl font-bold">Backend Engineer (Data & Analytics)</p>
                 <p class="mx-2">
-                    Ingeniero de Sistemas y Matemático con experiencia de 3
-                    años. Competente en programación y matemáticas aplicadas,
-                    con énfasis en ciencia de datos, desarrollo FullStack,
-                    modelado de bases de datos. Dominio avanzado en lenguajes de
-                    programación como Python y JavaScript. Capaz de diseñar,
-                    desarrollar y optimizar sistemas con enfoque en la
-                    resolución de problemas complejos. Orientado a resultados,
-                    con un alto nivel de motivación, compromiso y
-                    responsabilidad. Destacada capacidad de trabajo en equipo y
-                    atención al detalle. Con aptitudes para aportar valor a la
-                    organización mediante la innovación y el desarrollo de
-                    soluciones eficaces. Promedio distinguido durante todo el
-                    ciclo universitario.
+                    Ingeniero de Sistemas y Matemático con 4 años de experiencia como Backend Engineer con enfoque en data/analytics. He construido y optimizado sistemas con reglas de negocio complejas, desarrollando APIs y componentes de producto en Python y JavaScript, e integrando datos para métricas operativas y toma de decisiones. Pensando siempre en el cliente final. Me muevo cómodo entre el mundo de ingeniería y el de analítica: desde el diseño de modelos/consultas hasta la entrega de KPIs consumibles por negocio. Priorizo entregables medibles: performance, mantenibilidad, trazabilidad y automatización.
                 </p>
             </div>
         </section>
-        <section class="flex flex-col gap-5">
+        <section class="flex flex-col gap-5 animate-on-scroll">
             <div class="flex items-center justify-between">
                 <p class="text-2xl font-bold">Top Proyectos</p>
                 <a
@@ -96,4 +84,28 @@ import Main from "@layouts/Main.astro";
             </Carousel>
         </section>
     </article>
+
+    <script>
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+                el.classList.remove("is-visible");
+                observer.observe(el);
+            });
+        }
+
+        initScrollAnimations();
+        document.addEventListener("astro:page-load", initScrollAnimations);
+    </script>
 </Main>

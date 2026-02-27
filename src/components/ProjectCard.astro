@@ -5,31 +5,86 @@ import { Icon } from "astro-icon/components";
 const { title, description, image, link, tag } = Astro.props;
 ---
 
-<div
-    class="min-w-[320px] max-w-[350px] h-[384px] rounded-2xl flex flex-col overflow-hidden bg-white relative"
->
+<astro-project-card class="h-full">
     <div
-        class="absolute top-0 right-0 bg-white rounded-es-2xl z-10 pointer-events-none"
+        class="min-w-[320px] max-w-[350px] h-full rounded-2xl flex flex-col overflow-hidden bg-white relative"
+        card-root
     >
-        <div class="relative w-full h-full">
-            <p class="py-1 px-3 text-sm sm:text-base" project-tag>{tag}</p>
-            <Icon class="absolute right-full top-0 text-white rotate-90" name="inrounded-corner" size={5} />
-            <Icon class="absolute right-0 top-full text-white rotate-90" name="inrounded-corner" size={5} />
+        <div
+            class="absolute top-0 right-0 bg-white rounded-es-2xl z-10 pointer-events-none"
+        >
+            <div class="relative w-full h-full">
+                <p class="py-1 px-3 text-sm sm:text-base" project-tag>{tag}</p>
+                <Icon class="absolute right-full top-0 text-white rotate-90" name="inrounded-corner" size={5} />
+                <Icon class="absolute right-0 top-full text-white rotate-90" name="inrounded-corner" size={5} />
+            </div>
+        </div>
+        <figure class="w-full h-48 overflow-hidden shadow-md flex-shrink-0">
+            <img
+                class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300 z-0"
+                src={image}
+                alt={title}
+                loading="lazy"
+            />
+        </figure>
+        <div class="flex flex-col items-baseline gap-2 px-3 sm:px-5 p-3 sm:p-4 border rounded-es-2xl rounded-ee-2xl flex-1">
+            <p class="text-lg sm:text-xl font-semibold line-clamp-2" project-title>{title}</p>
+            <div class="w-full overflow-hidden transition-[max-height] duration-300 ease-in-out" card-description-wrapper style="max-height: 7.5em;">
+                <p class="text-sm" card-description>{description}</p>
+            </div>
+            <div class="flex items-center w-full mt-auto">
+                <button
+                    class="text-xs text-catskill-white-700 hover:text-catskill-white-950 transition-colors duration-200 cursor-pointer underline"
+                    card-toggle
+                    style="display: none;"
+                >
+                    Leer más
+                </button>
+                <div class="ml-auto">
+                    <IconButton text="Ver" link={link} icon_name="open" icon_size={15} />
+                </div>
+            </div>
         </div>
     </div>
-    <figure class="w-full h-48 overflow-hidden shadow-md">
-        <img
-            class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-300 z-0"
-            src={image}
-            alt={title}
-            loading="lazy"
-        />
-    </figure>
-    <div class="flex flex-col items-baseline gap-2 px-3 sm:px-5 h-full p-3 sm:p-4 border rounded-es-2xl rounded-ee-2xl">
-        <p class="text-lg sm:text-xl font-semibold line-clamp-2" project-title>{title}</p>
-        <p class="text-sm line-clamp-5">{description}</p>
-        <div class="mt-auto ml-auto">
-            <IconButton text="Ver" link={link} icon_name="open" icon_size={15} />
-        </div>
-    </div>
-</div>
+</astro-project-card>
+
+<script>
+    class AstroProjectCard extends HTMLElement {
+        expanded: boolean;
+        toggleBtn: HTMLElement;
+        description: HTMLElement;
+        wrapper: HTMLElement;
+        collapsedHeight: string;
+
+        constructor() {
+            super();
+            this.expanded = false;
+            this.toggleBtn = this.querySelector("[card-toggle]");
+            this.description = this.querySelector("[card-description]");
+            this.wrapper = this.querySelector("[card-description-wrapper]");
+            this.collapsedHeight = "7.5em";
+        }
+
+        connectedCallback() {
+            // Show toggle only if description overflows
+            requestAnimationFrame(() => {
+                if (this.description.scrollHeight > this.wrapper.clientHeight) {
+                    this.toggleBtn.style.display = "";
+                }
+            });
+
+            this.toggleBtn.addEventListener("click", () => {
+                this.expanded = !this.expanded;
+                if (this.expanded) {
+                    this.wrapper.style.maxHeight = this.description.scrollHeight + "px";
+                    this.toggleBtn.textContent = "Leer menos";
+                } else {
+                    this.wrapper.style.maxHeight = this.collapsedHeight;
+                    this.toggleBtn.textContent = "Leer más";
+                }
+            });
+        }
+    }
+
+    customElements.define("astro-project-card", AstroProjectCard);
+</script>

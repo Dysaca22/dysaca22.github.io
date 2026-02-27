@@ -62,8 +62,8 @@ const { experiences, education, skills } = info;
                     Experiencia profesional
                 </h2>
                 {
-                    experiences.map((exp) => (
-                        <div class="ml-5 relative hover:bg-catskill-white-100 p-4 rounded-lg transition-all duration-200 hover:shadow-md">
+                    experiences.map((exp, i) => (
+                        <div class="ml-5 relative hover:bg-catskill-white-100 p-4 rounded-lg transition-all duration-200 hover:shadow-md animate-on-scroll" style={`transition-delay: ${i * 100}ms;`}>
                             <span class="absolute -left-4 top-[1.3em] text-xl translate -translate-x-1/2 w-[8px] h-[8px] bg-catskill-white-900 rounded-full shadow-md" />
                             <h3 class="font-semibold text-xl">
                                 {exp.title}
@@ -88,8 +88,8 @@ const { experiences, education, skills } = info;
                     Formación Académica
                 </h2>
                 {
-                    education.map((edu) => (
-                        <div class="ml-5 relative hover:bg-catskill-white-100 p-4 rounded-lg transition-all duration-200 hover:shadow-md">
+                    education.map((edu, i) => (
+                        <div class="ml-5 relative hover:bg-catskill-white-100 p-4 rounded-lg transition-all duration-200 hover:shadow-md animate-on-scroll" style={`transition-delay: ${i * 100}ms;`}>
                             <span class="absolute -left-4 top-[1.3em] text-xl translate -translate-x-1/2 w-[8px] h-[8px] bg-catskill-white-900 rounded-full shadow-md" />
                             <h3 class="font-semibold text-xl">
                                 {edu.title}
@@ -108,8 +108,8 @@ const { experiences, education, skills } = info;
                 </h2>
                 <ul class="flex flex-col gap-3">
                     {
-                        skills.map((skill) => (
-                            <li class="hover:bg-catskill-white-100 p-3 rounded-lg transition-all duration-200 hover:shadow-md">
+                        skills.map((skill, i) => (
+                            <li class="hover:bg-catskill-white-100 p-3 rounded-lg transition-all duration-200 hover:shadow-md animate-on-scroll" style={`transition-delay: ${i * 100}ms;`}>
                                 {skill.category && (
                                     <span class="font-semibold text-catskill-white-900">
                                         {skill.category}
@@ -124,4 +124,28 @@ const { experiences, education, skills } = info;
             </section>
         </SectionTabs>
     </article>
+
+    <script>
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+
+            document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+                el.classList.remove("is-visible");
+                observer.observe(el);
+            });
+        }
+
+        initScrollAnimations();
+        document.addEventListener("astro:page-load", initScrollAnimations);
+    </script>
 </Main>
