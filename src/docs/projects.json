@@ -1,11 +1,35 @@
 {
     "projects": [
         {
+            "title": "Viento en Colombia: tablero y predicción horaria",
+            "description": "Proyecto de grado. Tablero con 3 millones de registros horarios del IDEAM (BigQuery, dbt, Django y Plotly) y un optimizador metaheurístico propio para predecir el viento por hora. Desde un inicio aleatorio, su error en Rosenbrock es 23,5 frente a 139,4 de Newton.",
+            "image": "/images/parque-eolico.jpg",
+            "link": "https://github.com/Dysaca22/dashboard_wind_speed",
+            "tag": "Ciencia de datos",
+            "top": true
+        },
+        {
+            "title": "HeliosGrid: monitoreo solar en streaming",
+            "description": "Sensores simulados con 8.760 registros horarios reales de irradiancia del NSRDB. Kafka los publica, PostgreSQL los guarda y Power BI los muestra; todo se levanta con Docker Compose.",
+            "image": "/images/heliosgrid.svg",
+            "link": "https://github.com/Dysaca22/heliosgrid-intelligence",
+            "tag": "Ingeniería de datos",
+            "top": true
+        },
+        {
             "title": "Statistical package for computing precision covariance matrices via modified Cholesky decomposition",
-            "description": "Desarrollo de un paquete estadístico diseñado para calcular matrices de covarianza de precisión mediante la descomposición de Cholesky modificada, adaptado a los Modelos de Circulación General Atmosférica (MCGA).",
+            "description": "Coautor. Paquete de Python publicado en SoftwareX 30 (2025) que calcula matrices de precisión mediante la descomposición de Cholesky modificada, para modelos de circulación general atmosférica.",
             "image": "/images/mundo-poligonos.jpg",
-            "link": "https://www.sciencedirect.com/science/article/pii/S2352711025000925",
-            "tag":"Articulo",
+            "link": "https://doi.org/10.1016/j.softx.2025.102125",
+            "tag": "Artículo",
+            "top": true
+        },
+        {
+            "title": "COVID-19 en Colombia: almacén de datos y pronóstico semanal",
+            "description": "Almacén en BigQuery con dbt sobre los casos de Datos Abiertos Colombia, y pronóstico semanal con Darts. N-BEATS reduce a la mitad el error absoluto de ARIMA y Random Forest.",
+            "image": "/images/mineria-covid-19.png",
+            "link": "https://dysaca22.github.io/dm-datawarehousing/web/",
+            "tag": "Ciencia de datos",
             "top": true
         },
         {
@@ -13,31 +37,15 @@
             "description": "Colaboración en la publicación de un artículo en la revista International Journal of Artificial Intelligence (IJAI) sobre el protocolo de enrutamiento basado en RPL que utiliza la función Log-normal y shadowing como modelo estadístico para establecer una métrica de confianza entre los nodos de una red inalámbrica, para detectar posibles ataques a la red.",
             "image": "/images/IJAI.png",
             "link": "http://www.ceser.in/ceserp/index.php/ijai/article/view/6913",
-            "tag": "Articulo",
-            "top": true
-        },
-        {
-            "title": "Nuevo enfoque de optimización metaheurística: aplicación en granjas eólicas",
-            "description": "Método innovador de optimización que combina técnicas metaheurísticas para la mejora del diseño y operación de granjas eólicas, abordando limitaciones tradicionales y validando su eficacia con datos históricos de viento en Colombia.",
-            "image": "/images/parque-eolico.jpg",
-            "link": "https://github.com/Dysaca22/dashboard_wind_speed",
-            "tag": "Ciencia de datos",
+            "tag": "Artículo",
             "top": true
         },
         {
             "title": "Supuestos y limitaciones en los modelos de clases latentes",
-            "description": "Tesis de grado en una revisión sistemática de la literatura sobre Modelos de Clases Latentes, analizando supuestos, limitaciones y estrategias para mejorar su eficiencia y aplicabilidad en la toma de decisiones basada en datos.",
+            "description": "Tesis de grado: una revisión sistemática de la literatura sobre Modelos de Clases Latentes, analizando supuestos, limitaciones y estrategias para mejorar su eficiencia y aplicabilidad en la toma de decisiones basada en datos.",
             "image": "/images/estadistica.jpg",
             "link": "/docs/Modelos de clases latentes.pdf",
             "tag": "Estadística",
-            "top": true
-        },
-        {
-            "title": "Minería de Datos Covid-19 Colombia",
-            "description": "Consolidación de progreso con el proyecto aplicando minería de datos, técnicas de aprendizaje automático y habilidades prácticas con Python, en base a los datos del Covid-19 en Colombia.",
-            "image": "/images/mineria-covid-19.png",
-            "link": "https://dysaca22.github.io/dm-datawarehousing/web/",
-            "tag": "Análisis de datos",
             "top": true
         },
         {
@@ -46,7 +54,7 @@
             "image": "/images/covid-19.png",
             "link": "https://github.com/Dysaca22/Informe-del-Covid-19-Colombia",
             "tag": "Análisis de datos",
-            "top": true
+            "top": false
         },
         {
             "title": "Modelado y estudio de la topología de la botella de Klein y otros",
@@ -54,7 +62,7 @@
             "image": "/images/botella de Klein.png",
             "link": "https://github.com/Dysaca22/Toplogia",
             "tag": "Matemáticas",
-            "top": true
+            "top": false
         },
         {
             "title": "Solución cubo Rubik 2x2 método A*",
@@ -81,7 +89,7 @@
             "top": false
         },
         {
-            "title": "Congruencia Cuadratica",
+            "title": "Congruencia cuadrática",
             "description": "Investigación de la resolución de congruencias cuadráticas y su impacto en matemáticas e informática, analizando algoritmos, tiempos de ejecución, complejidad y su relación con problemas NP-Hard.",
             "image": "/images/congruencia-cuadratica.jpg",
             "link": "https://github.com/Dysaca22/Congruencia-Cuadratica",

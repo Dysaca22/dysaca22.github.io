@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 384" width="700" height="384" font-family="Helvetica, Arial, sans-serif">
+  <rect width="700" height="384" fill="#f4f9fb"/>
+  <circle cx="616" cy="82" r="24" fill="#e0a030"/>
+  <text x="50" y="76" font-size="14" letter-spacing="2.5" fill="#3c798d">STREAMING</text>
+  <text x="50" y="104" font-size="28" font-weight="bold" fill="#1b2e36">Parque solar en tiempo real</text>
+  <g fill="none" stroke="#294651" stroke-width="1.5">
+    <rect x="51" y="162" width="130" height="68" rx="4"/>
+    <rect x="207" y="162" width="130" height="68" rx="4"/>
+    <rect x="363" y="162" width="130" height="68" rx="4"/>
+    <rect x="519" y="162" width="130" height="68" rx="4"/>
+    <path d="M182 196H205M200 191l5 5-5 5"/>
+    <path d="M338 196H361M356 191l5 5-5 5"/>
+    <path d="M494 196H517M512 191l5 5-5 5"/>
+  </g>
+  <g font-size="21" font-weight="bold" fill="#1b2e36" text-anchor="middle">
+    <text x="116" y="203">NSRDB</text>
+    <text x="272" y="203">Kafka</text>
+    <text x="428" y="203">PostgreSQL</text>
+    <text x="584" y="203">Power BI</text>
+  </g>
+  <g font-size="15" fill="#326172" text-anchor="middle">
+    <text x="116" y="258">irradiancia horaria</text>
+    <text x="272" y="258">1 registro/s</text>
+    <text x="428" y="258">tabla solar_data</text>
+    <text x="584" y="258">tablero</text>
+  </g>
+  <line x1="50" y1="306" x2="650" y2="306" stroke="#cee3e9" stroke-width="1"/>
+  <text x="50" y="334" font-size="15" fill="#3c798d">8.760 registros de 2022 · Docker Compose</text>
+</svg>
