@@ -5,7 +5,7 @@ import SectionTabs from "@components/SectionTabs.astro";
 import Main from "@layouts/Main.astro";
 import info from "@docs/info.json";
 
-const title = "Sobre mi";
+const title = "Sobre mí";
 const tab_options = [
     {
         label: "Experiencia",
@@ -33,7 +33,10 @@ const { experiences, education, skills } = info;
     }
 </style>
 
-<Main title={title}>
+<Main
+    title={title}
+    description="Experiencia, formación y habilidades de Dylan Cantillo Arrieta, Backend & AI Engineer: Python, GCP, arquitectura de datos y analítica."
+>
     <div class="fixed bottom-14 right-10 group z-50">
         <a
             class="group relative"

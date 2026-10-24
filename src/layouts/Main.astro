@@ -4,7 +4,19 @@ import { ViewTransitions } from "astro:transitions";
 import Footer from "@layouts/Footer.astro";
 import Header from "@layouts/Header.astro";
 
-const { title = null } = Astro.props;
+const name = "Dylan Cantillo Arrieta";
+const role = "Backend & AI Engineer";
+
+const {
+    title = null,
+    description = `${role}. Ingeniero de Sistemas y Matemático con 4 años en backend y analítica de datos con Python y GCP, de los datos a decisiones operativas.`,
+    image = "/images/og.jpg",
+} = Astro.props;
+
+const fullTitle = [title, name, role].filter(Boolean).join(" · ");
+// GitHub Pages redirige /projects a /projects/: la canónica es la de destino
+const canonical = new URL(Astro.url.pathname.replace(/\/?$/, "/"), Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
 ---
 
 <!doctype html>
@@ -12,9 +24,21 @@ const { title = null } = Astro.props;
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dylan Cantillo Arrieta {title && `- ${title}`}</title>
+        <title>{fullTitle}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={name} />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={imageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${name}, ${role}`} />
+        <meta name="twitter:card" content="summary_large_image" />
         <ViewTransitions />
-        <link rel="icon" href="/favicon.svg" type="image/x-icon" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="stylesheet" href="/styles/main.css">
         <link rel="stylesheet" href="/styles/scrollbar.css">
     </head>

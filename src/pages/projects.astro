@@ -8,7 +8,10 @@ const title = "Proyectos";
 const tags = [...new Set(projects.map(({ tag }) => tag))].sort();
 ---
 
-<Main title={title}>
+<Main
+    title={title}
+    description="Proyectos de Dylan Cantillo Arrieta en ingeniería y ciencia de datos, IA, estadística y matemáticas, con enlace a cada uno."
+>
     <article class="md:mx-20 p-5 flex flex-col gap-10">
         <div
             class="flex flex-row flex-wrap gap-5 justify-between items-stretch"
