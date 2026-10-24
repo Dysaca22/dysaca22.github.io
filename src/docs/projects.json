@@ -35,7 +35,7 @@
         {
             "title": "LogNS-RPL: RPL-based secure routing protocol using Log-normal shadowing statistical model",
             "description": "Colaboración en la publicación de un artículo en la revista International Journal of Artificial Intelligence (IJAI) sobre el protocolo de enrutamiento basado en RPL que utiliza la función Log-normal y shadowing como modelo estadístico para establecer una métrica de confianza entre los nodos de una red inalámbrica, para detectar posibles ataques a la red.",
-            "image": "/images/IJAI.png",
+            "image": "/images/ijai.jpg",
             "link": "http://www.ceser.in/ceserp/index.php/ijai/article/view/6913",
             "tag": "Artículo",
             "top": true

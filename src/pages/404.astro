@@ -1,0 +1,21 @@
+---
+import Main from "@layouts/Main.astro";
+---
+
+<Main
+    title="Página no encontrada"
+    description="La página que buscas no existe en el portafolio de Dylan Cantillo Arrieta."
+    noindex
+>
+    <article
+        class="md:mx-20 p-5 flex flex-col items-center justify-center gap-6 text-center min-h-[60vh]"
+    >
+        <p class="text-6xl font-bold text-catskill-white-900">404</p>
+        <h1 class="text-3xl font-bold">Página no encontrada</h1>
+        <p>La dirección no existe o cambió de lugar.</p>
+        <nav class="flex flex-row gap-10 mt-4">
+            <a class="px-5 border-b border-black font-semibold" href="/">Inicio</a>
+            <a class="px-5 border-b border-black font-semibold" href="/projects">Proyectos</a>
+        </nav>
+    </article>
+</Main>

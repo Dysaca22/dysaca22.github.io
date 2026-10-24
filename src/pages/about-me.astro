@@ -22,6 +22,9 @@ const tab_options = [
 ];
 
 const { experiences, education, skills } = info;
+// En info.json las habilidades sin categoría son las aplicables (blandas)
+const technicalSkills = skills.filter(({ category }) => category);
+const appliedSkills = skills.filter(({ category }) => !category);
 ---
 
 <style>
@@ -88,7 +91,7 @@ const { experiences, education, skills } = info;
                     class="dotted absolute top-10 left-1 w-2"
                     style="height: calc(100% - 40px);"></span>
                 <h2 class="text-3xl font-bold">
-                    Formación Académica
+                    Formación académica
                 </h2>
                 {
                     education.map((edu, i) => (
@@ -105,25 +108,39 @@ const { experiences, education, skills } = info;
                     ))
                 }
             </section>
-            <section class="flex flex-col gap-4 p-6 rounded-xl" id="sec_skills">
-                <h2 class="text-3xl font-bold">
-                    Habilidades Técnicas
-                </h2>
-                <ul class="flex flex-col gap-3">
-                    {
-                        skills.map((skill, i) => (
-                            <li class="hover:bg-catskill-white-100 p-3 rounded-lg transition-all duration-200 hover:shadow-md animate-on-scroll" style={`transition-delay: ${i * 100}ms;`}>
-                                {skill.category && (
+            <section class="flex flex-col gap-10" id="sec_skills">
+                <div class="flex flex-col gap-6">
+                    <h2 class="text-3xl font-bold">
+                        Habilidades técnicas
+                    </h2>
+                    <ul class="flex flex-col gap-3">
+                        {
+                            technicalSkills.map((skill, i) => (
+                                <li class="hover:bg-catskill-white-100 p-3 rounded-lg transition-all duration-200 hover:shadow-md animate-on-scroll" style={`transition-delay: ${i * 100}ms;`}>
                                     <span class="font-semibold text-catskill-white-900">
                                         {skill.category}
                                     </span>
-                                )}
-                                {skill.category ? ": " : ""}
-                                <span>{skill.items}</span>
-                            </li>
-                        ))
-                    }
-                </ul>
+                                    {": "}
+                                    <span>{skill.items}</span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
+                <div class="flex flex-col gap-6">
+                    <h2 class="text-3xl font-bold">
+                        Habilidades aplicables
+                    </h2>
+                    <ul class="flex flex-col gap-3">
+                        {
+                            appliedSkills.map((skill, i) => (
+                                <li class="hover:bg-catskill-white-100 p-3 rounded-lg transition-all duration-200 hover:shadow-md animate-on-scroll" style={`transition-delay: ${i * 100}ms;`}>
+                                    {skill.items}
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </div>
             </section>
         </SectionTabs>
     </article>

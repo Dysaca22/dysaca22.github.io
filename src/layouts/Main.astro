@@ -11,6 +11,7 @@ const {
     title = null,
     description = `${role}. Ingeniero de Sistemas y Matemático con 4 años en backend y analítica de datos con Python y GCP, de los datos a decisiones operativas.`,
     image = "/images/og.jpg",
+    noindex = false,
 } = Astro.props;
 
 const fullTitle = [title, name, role].filter(Boolean).join(" · ");
@@ -26,7 +27,7 @@ const imageUrl = new URL(image, Astro.site).href;
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{fullTitle}</title>
         <meta name="description" content={description} />
-        <link rel="canonical" href={canonical} />
+        {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={name} />
         <meta property="og:title" content={fullTitle} />
