@@ -29,7 +29,7 @@ const { title, description, image, link, tag } = Astro.props;
         </figure>
         <div class="flex flex-col items-baseline gap-2 px-3 sm:px-5 p-3 sm:p-4 border rounded-es-2xl rounded-ee-2xl flex-1">
             <p class="text-lg sm:text-xl font-semibold line-clamp-2" project-title>{title}</p>
-            <div class="w-full overflow-hidden transition-[max-height] duration-300 ease-in-out" card-description-wrapper style="max-height: 7.5em;">
+            <div class="w-full overflow-hidden transition-[max-height] duration-300 ease-in-out" card-description-wrapper style="max-height: 7.5rem;">
                 <p class="text-sm" card-description>{description}</p>
             </div>
             <div class="flex items-center w-full mt-auto">
@@ -62,7 +62,7 @@ const { title, description, image, link, tag } = Astro.props;
             this.toggleBtn = this.querySelector("[card-toggle]");
             this.description = this.querySelector("[card-description]");
             this.wrapper = this.querySelector("[card-description-wrapper]");
-            this.collapsedHeight = "7.5em";
+            this.collapsedHeight = "7.5rem";
         }
 
         connectedCallback() {

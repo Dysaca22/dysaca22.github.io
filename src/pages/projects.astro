@@ -26,7 +26,7 @@ const tags = [...new Set(projects.map(({ tag }) => tag))].sort();
                 class="px-4 py-2 border rounded-lg min-w-[200px] flex-1 flex-grow-0 cursor-pointer"
                 id="tagFilter"
             >
-                <option value="">Todos las categorías</option>
+                <option value="">Todas las categorías</option>
                 {tags.map((tag) => <option value={tag}>{tag}</option>)}
             </select>
         </div>

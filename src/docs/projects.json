@@ -43,7 +43,7 @@
         {
             "title": "Supuestos y limitaciones en los modelos de clases latentes",
             "description": "Tesis de grado: una revisión sistemática de la literatura sobre Modelos de Clases Latentes, analizando supuestos, limitaciones y estrategias para mejorar su eficiencia y aplicabilidad en la toma de decisiones basada en datos.",
-            "image": "/images/estadistica.jpg",
+            "image": "/images/tesis-metodologia.png",
             "link": "/docs/Modelos de clases latentes.pdf",
             "tag": "Estadística",
             "top": true
@@ -60,7 +60,7 @@
             "title": "Modelado y estudio de la topología de la botella de Klein y otros",
             "description": "El proyecto de la clase de topología estudia las homologías 0 y 1 utilizando el complejo de Vietoris-Rips, gráficos, implementación y código en Python.",
             "image": "/images/botella de Klein.png",
-            "link": "https://github.com/Dysaca22/Toplogia",
+            "link": "https://github.com/Dysaca22/Topologia",
             "tag": "Matemáticas",
             "top": false
         },
